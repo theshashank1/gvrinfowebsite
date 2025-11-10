@@ -456,12 +456,12 @@
 
 
 
-    <!-- Portfolio Cards Section -->
+<!-- Our Works Section -->
 <section id="our-works" class="relative w-full md:pt-0 md:pb-10 pb-5 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 text-center">
 
     <!-- Title + Subtitle -->
-    <div class="mb-3 md:mb-6">
+    <div class="mb-3 md:mb-6 works-text opacity-0 transform -translate-x-10 transition-all duration-700">
       <h2 class="text-2xl md:text-4xl font-bold text-[#102e62] mb-2">Our Works</h2>
       <p class="text-md md:text-lg font-semibold text-gray-600">Crafting digital solutions that empower businesses.</p>
       <p class="mt-1 md:mt-3 text-md md:text-xl max-w-7xl mx-auto text-gray-500">
@@ -471,45 +471,45 @@
     </div>
 
     <!-- Dynamic Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 works-cards">
       
       <!-- Ayucare -->
-      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500">
+      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500 opacity-0 transform translate-y-10">
         <img src="./assests/hrmayucare.jpg" alt="Ayucare" class="w-full h-56 object-cover group-hover:scale-105 transition-all duration-500">
         <div class="p-6">
           <h3 class="text-xl font-semibold text-[#102e62] mb-2">Ayucare (HMS)</h3>
           <p class="text-gray-500 text-sm md:text-lg mb-4">
             A modern Hospital Management System streamlining patient records, billing, and administration with seamless workflows.
           </p>
-          <a href="#" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
+          <a href="ayucare(hms)" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
             View More
           </a>
         </div>
       </div>
 
       <!-- Brusele -->
-      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500">
+      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500 opacity-0 transform translate-y-10">
         <img src="./assests/bruserele.jpg" alt="Brusele" class="w-full h-56 object-cover group-hover:scale-105 transition-all duration-500">
         <div class="p-6">
           <h3 class="text-xl font-semibold text-[#102e62] mb-2">Brusele (Property Management)</h3>
           <p class="text-gray-500 text-sm md:text-lg mb-4">
             Manage hotel and property operations effortlessly with real-time insights, booking, and revenue tracking tools.
           </p>
-          <a href="#" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
+          <a href="burserele" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
             View More
           </a>
         </div>
       </div>
 
       <!-- Empora -->
-      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500">
+      <div class="group relative bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition-all duration-500 opacity-0 transform translate-y-10">
         <img src="./assests/empora.png" alt="Empora" class="w-full h-56 object-cover group-hover:scale-105 transition-all duration-500">
         <div class="p-6">
           <h3 class="text-xl font-semibold text-[#102e62] mb-2">Empora (HRM)</h3>
           <p class="text-gray-500 text-sm md:text-lg mb-4">
             A human resource management system designed to optimize employee engagement, payroll, and performance tracking.
           </p>
-          <a href="#" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
+          <a href="empora(hrm)" class="inline-block bg-[#102e62] text-white px-5 py-2 rounded-full text-sm md:text-base font-medium hover:bg-[#1b4c9a] transition-all duration-300">
             View More
           </a>
         </div>
@@ -518,6 +518,58 @@
     </div>
   </div>
 </section>
+
+
+<!-- Animation Script -->
+<script>
+  const worksSection = document.querySelector("#our-works");
+  const textBox = document.querySelector(".works-text");
+  const cards = document.querySelectorAll(".works-cards .group");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate text (slide from left)
+        textBox.classList.remove("opacity-0", "-translate-x-10");
+        textBox.classList.add("opacity-100", "translate-x-0");
+
+        // Animate cards one by one
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add("opacity-100", "translate-y-0");
+            card.classList.remove("opacity-0", "translate-y-10");
+          }, index * 200);
+        });
+      } else {
+        // Reset animation (so it plays again when revisited)
+        textBox.classList.add("opacity-0", "-translate-x-10");
+        textBox.classList.remove("opacity-100", "translate-x-0");
+        cards.forEach(card => {
+          card.classList.add("opacity-0", "translate-y-10");
+          card.classList.remove("opacity-100", "translate-y-0");
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(worksSection);
+</script>
+
+
+<style>
+  .works-text,
+  .works-cards .group {
+    transition: all 0.8s ease;
+  }
+</style>
+<style>
+  .works-text,
+  .works-cards .group {
+    transition: all 0.8s ease;
+  }
+</style>
+
+
 
 
 

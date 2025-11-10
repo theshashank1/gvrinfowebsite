@@ -380,83 +380,81 @@
 
 
     <!-- TEAM MEMBERS SECTION -->
-<section id="team-banner"
-  class="relative w-full pt-10 pb-5 md:py-20 mb-5 bg-cover bg-center bg-no-repeat md:h-[600px] 
+    <section id="team-banner" class="relative w-full pt-10 pb-5 md:py-20 mb-5 bg-cover bg-center bg-no-repeat md:h-[600px] 
   flex flex-col items-center justify-center text-center overflow-hidden">
 
-  <!-- Background Video -->
-  <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./assests/bannervideo.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+        <!-- Background Video -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="./assests/bannervideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
 
-  <!-- Dark Gradient Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#102e62]/90 via-[#0b1e43]/85 to-[#000000]/90 z-0"></div>
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#102e62]/90 via-[#0b1e43]/85 to-[#000000]/90 z-0"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-0 md:pb-0">
-    <h2
-      class="team-banner-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 opacity-0">
-      Meet Our Visionaries
-    </h2>
+        <!-- Content -->
+        <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-0 md:pb-0">
+            <h2
+                class="team-banner-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 opacity-0">
+                Meet Our Visionaries
+            </h2>
 
-    <p
-      class="team-banner-subtitle text-md sm:text-lg md:text-xl italic text-gray-100 opacity-0">
-      The talented minds driving innovation, growth, and excellence every day.
-    </p>
-  </div>
-</section>
+            <p class="team-banner-subtitle text-md sm:text-lg md:text-xl italic text-gray-100 opacity-0">
+                The talented minds driving innovation, growth, and excellence every day.
+            </p>
+        </div>
+    </section>
 
-<style>
-  /* ---------------- Entrance Animation ---------------- */
-  @keyframes teamBannerSlideInTop {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
+    <style>
+        /* ---------------- Entrance Animation ---------------- */
+        @keyframes teamBannerSlideInTop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
 
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  .team-banner-animate {
-    animation: teamBannerSlideInTop 1s ease-out forwards;
-  }
+        .team-banner-animate {
+            animation: teamBannerSlideInTop 1s ease-out forwards;
+        }
 
-  /* ---------------- Optional Overlay (for video blend) ---------------- */
-  #team-banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-</style>
+        /* ---------------- Optional Overlay (for video blend) ---------------- */
+        #team-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
 
-<script>
-  // Animate text on scroll (slide in from top with stagger)
-  const teamBannerObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const title = entry.target.querySelector('.team-banner-title');
-        const subtitle = entry.target.querySelector('.team-banner-subtitle');
+    <script>
+        // Animate text on scroll (slide in from top with stagger)
+        const teamBannerObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const title = entry.target.querySelector('.team-banner-title');
+                    const subtitle = entry.target.querySelector('.team-banner-subtitle');
 
-        // Animate title first
-        setTimeout(() => title.classList.add('team-banner-animate'), 200);
+                    // Animate title first
+                    setTimeout(() => title.classList.add('team-banner-animate'), 200);
 
-        // Animate subtitle after title
-        setTimeout(() => subtitle.classList.add('team-banner-animate'), 800);
+                    // Animate subtitle after title
+                    setTimeout(() => subtitle.classList.add('team-banner-animate'), 800);
 
-        // Unobserve after animation runs once
-        teamBannerObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
+                    // Unobserve after animation runs once
+                    teamBannerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
 
-  teamBannerObserver.observe(document.querySelector('#team-banner'));
-</script>
+        teamBannerObserver.observe(document.querySelector('#team-banner'));
+    </script>
 
 
 
@@ -474,7 +472,7 @@
                 <p id="paragraph" class="text-gray-800 md:text-lg text-md leading-relaxed opacity-0">
                     Get acquainted with the powerhouse behind GVR – our expert team of professionals dedicated to
                     revolutionizing the IT landscape Comprising.
-                </p>
+                <!-- </p>
                 <a id="cta-btn" href="contact"
                     class="teammembersection-button group relative inline-flex items-center px-3 py-2 md:px-6 md:py-3 rounded-full backdrop-blur-md border border-[#f5a222] bg-[#102e62] text-[#f5a222] font-bold overflow-hidden opacity-0 transition-all duration-500">
                     <span class="teammembersection-roll-text inline-block">Talk To An Expert</span>
@@ -483,7 +481,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
                         </svg>
                     </span>
-                </a>
+                </a> -->
             </div>
             <!-- Right Part (Image) -->
             <div class="flex justify-center md:justify-end">
@@ -712,10 +710,11 @@
                         <p class="text-gray-200 text-lg md:text-lg mb-2 md:mb-4">Passionate about creating smooth user
                             experiences and
                             responsive designs.</p>
-                        <button
-                            class="px-3 md:px-5 py-2 md:py-2 bg-[#f5a222] hover:bg-[#102e62] text-white font-medium rounded-full opacity-0 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)]">
+                        <a href="team-member"
+                            class="inline-block px-3 md:px-5 py-2 md:py-2 bg-[#f5a222] hover:bg-[#102e62] text-white rounded-full opacity-0 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)]">
                             View Profile
-                        </button>
+                        </a>
+
                     </div>
                 </div>
 
@@ -742,9 +741,11 @@
                         <p class="text-gray-200 text-md md:text-lg mb-2 md:mb-4">Loves blending creativity and
                             technology to build
                             engaging designs.</p>
-                        <button
-                            class="px-3 md:px-5 py-2 md:py-2 bg-[#f5a222] hover:bg-[#102e62] text-white font-medium rounded-full opacity-0 translate-y-6 transition-all duration-500">View
-                            Profile</button>
+                        <a href="team-member2"
+                            class="inline-block px-3 md:px-5 py-2 md:py-2 bg-[#f5a222] hover:bg-[#102e62] text-white  rounded-full opacity-0 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.3,1)]">
+                            View Profile
+                        </a>
+
                     </div>
                 </div>
 
@@ -802,11 +803,11 @@
             transform: translateY(0) scale(1);
         }
 
-        #team-section .team-card:hover .hover-content button {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.1s;
-        }
+       #team-section .team-card:hover .hover-content a {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
 
         #team-section .team-image img {
             backface-visibility: hidden;
@@ -900,7 +901,7 @@
             </p>
 
             <a id="cta-btn" href="careers"
-                class="cta-btn group inline-flex items-center px-6 py-3 md:px-8 md:py-3 mt-6 rounded-full backdrop-blur-md border border-[#f5a222] bg-[#102e62]/80 text-[#f5a222] font-bold overflow-hidden opacity-0 translate-y-10 transition-all duration-700 ease-out">
+                class="cta-btn group inline-flex items-center px-6 py-3 md:px-8 md:py-3 mt-6 rounded-full backdrop-blur-md border border-[#f5a222] bg-transparent hover:bg-[#f5a222] text-[#f5a222] hover:text-[#fff]  overflow-hidden opacity-0 translate-y-10 transition-all duration-700 ease-out">
                 <span class="cta-roll-text inline-block">Explore Careers</span>
                 <span class="cta-roll-arrow inline-block ml-3">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
