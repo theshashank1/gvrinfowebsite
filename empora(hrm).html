@@ -452,6 +452,942 @@
 
 
 
+<!-- About Empora Section -->
+<section id="about-empora" class="relative w-full py-10 md:py-24 bg-gray-50 overflow-hidden">
+  <div class="px-2 md:px-16 flex flex-col md:flex-row items-center gap-4 md:gap-8">
+
+    <!-- Left Image / Illustration -->
+    <div class="md:w-1/2 w-full flex justify-center md:justify-start">
+      <img src="./assests/empora.png" alt="Empora HRMS Dashboard"
+        class="w-full rounded-2xl shadow-lg object-cover about-image">
+    </div>
+
+    <!-- Right Content -->
+    <div class="md:w-1/2 about-text">
+      <h2 class="text-2xl md:text-4xl font-bold text-[#102e62] mb-2 md:mb-4">About Empora</h2>
+      <p class="text-gray-700 text-sm md:text-lg mb-2 md:mb-5 leading-relaxed">
+        <strong>Empora</strong> is an all-in-one <strong>Human Resource Management System (HRMS)</strong> 
+        developed by <strong>GVR Technologies</strong> to automate and simplify HR operations for modern organizations. 
+        It enables HR teams and managers to efficiently manage <strong>recruitment, attendance, payroll,</strong> 
+        and <strong>performance tracking</strong> — all through a single cloud-based dashboard.
+      </p>
+
+      <ul class="space-y-1 md:space-y-3 text-gray-800 text-sm md:text-lg">
+        <li class="flex items-start gap-2"><span class="text-[#102e62] text-sm md:text-xl">✔</span>
+          <p><strong>Developed by GVR</strong> with enterprise-grade reliability and trust.</p>
+        </li>
+        <li class="flex items-start gap-2"><span class="text-[#102e62] text-sm md:text-xl">✔</span>
+          <p><strong>Designed for all businesses</strong> — from startups to large enterprises.</p>
+        </li>
+        <li class="flex items-start gap-2"><span class="text-[#102e62] text-sm md:text-xl">✔</span>
+          <p><strong>Secure, scalable,</strong> and <strong>cloud-ready</strong> for seamless performance.</p>
+        </li>
+        <li class="flex items-start gap-2"><span class="text-[#102e62] text-xl">✔</span>
+          <p><strong>Reduces manual HR work</strong> and improves accuracy across all operations.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Decorative Shape -->
+  <div class="absolute bottom-0 left-0 w-full h-10 md:h-24 bg-[#102e62] clip-path-wave"></div>
+</section>
+
+<!-- Custom Wave -->
+<style>
+  .clip-path-wave {
+    clip-path: polygon(0 80%, 100% 0%, 100% 100%, 0% 100%);
+  }
+</style>
+
+<!-- GSAP + ScrollTrigger CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Create a timeline so image + text animate together
+  const aboutTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#about-empora",
+      start: "top 80%",
+      end: "bottom 30%",
+      toggleActions: "restart none none reset", // replay every time
+    }
+  });
+
+  // Image animation
+  aboutTl.from(".about-image", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  });
+
+  // Text animation (slides in from right)
+  aboutTl.from(".about-text > *", {
+    x: 100,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out"
+  }, "-=0.5"); // starts overlapping slightly with image animation
+</script>
+
+
+
+
+
+<!-- ⚙️ Empora Key Features Section -->
+<section id="empora-features" class="w-full py-16 md:py-24">
+  <div class="px-3 md:px-20 flex flex-col md:flex-row gap-1 md:gap-10 items-start">
+
+    <!-- Left: Category List -->
+    <div class="md:w-1/3 w-full">
+      <h2 class="text-2xl md:text-5xl font-bold text-[#102e62] mb-6 md:mb-10">
+        Key Features
+      </h2>
+      <ul id="featureList" class="space-y-0 md:space-y-4 text-left text-md">
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700 active-feature"
+          data-feature="employee">
+          👥 Employee Database Management
+        </li>
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700"
+          data-feature="attendance">
+          🕒 Attendance & Leave Tracking
+        </li>
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700"
+          data-feature="payroll">
+          💰 Payroll Management
+        </li>
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700"
+          data-feature="performance">
+          📈 Performance & Appraisal Tracking
+        </li>
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700"
+          data-feature="documents">
+          📁 Document Management
+        </li>
+        <li class="cursor-pointer p-3 rounded-lg border-l-4 border-transparent hover:border-[#f5a222] hover:bg-[#fff7ed] transition-all font-semibold text-gray-700"
+          data-feature="alerts">
+          🔔 Notifications & Alerts
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: Display Selected Feature -->
+    <div class="md:w-2/3 w-full">
+      <div id="featureContent" class="bg-white rounded-2xl shadow-lg md:p-10 transition-all duration-500">
+        <!-- Default Display -->
+        <div class="feature-card animate-fade-in p-3 md:p-6 rounded-2xl shadow-lg bg-white border border-gray-200">
+          <div class="text-3xl md:text-5xl mb-2 md:mb-4">👥</div>
+          <h3 class="text-xl md:text-2xl font-semibold text-[#102e62] mb-2 md:mb-3">Employee Database Management</h3>
+          <p class="text-gray-700 text-sm md:text-lg leading-relaxed">
+            Empora provides a centralized and secure digital employee database 
+            where HR teams can easily add, edit, and manage complete staff profiles. 
+            Each record stores essential details such as personal information, contact numbers, 
+            job roles, joining date, ID proofs, experience certificates, and employment history. 
+            The data is structured for quick search and retrieval — helping HR professionals 
+            access employee information within seconds and maintain accurate, up-to-date records.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✨ Tailwind Animations & Active Styles -->
+<style>
+  .animate-fade-in {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .active-feature {
+    border-left-color: #f5a222 !important;
+    background-color: #fff7ed !important;
+    color: #102e62 !important;
+  }
+</style>
+
+<!-- 💡 Dynamic Feature Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const featureList = document.querySelectorAll("#featureList li");
+    const featureContent = document.getElementById("featureContent");
+
+    // Detailed Feature Data
+    const features = {
+      employee: {
+        icon: "👥",
+        title: "Employee Database Management",
+        desc: `
+          Empora provides a centralized and secure digital employee database 
+          where HR teams can easily add, edit, and manage complete staff profiles. 
+          Each record stores essential details such as personal information, contact numbers, 
+          job roles, joining date, ID proofs, experience certificates, and employment history. 
+          The data is structured for quick search and retrieval — helping HR professionals 
+          access employee information within seconds and maintain accurate, up-to-date records.
+        `
+      },
+      attendance: {
+        icon: "🕒",
+        title: "Attendance & Leave Tracking",
+        desc: `
+          Simplify attendance management with Empora’s smart tracking system. 
+          The platform automatically logs employee attendance using biometric or manual inputs, 
+          monitors work hours, manages late entries, and calculates overtime. 
+          Employees can submit leave requests online, while managers can approve or reject them 
+          instantly from their dashboard. This ensures a transparent and automated process 
+          for tracking availability and maintaining work discipline across the organization.
+        `
+      },
+      payroll: {
+        icon: "💰",
+        title: "Payroll Management",
+        desc: `
+          Automate salary processing with Empora’s integrated payroll module. 
+          The system calculates gross and net pay, tax deductions, overtime, and bonuses 
+          accurately in just a few clicks. It generates payslips automatically 
+          and allows exporting payroll reports for audits or management review. 
+          With customizable salary structures and compliance support, 
+          it eliminates manual errors and saves HR teams valuable time every month.
+        `
+      },
+      performance: {
+        icon: "📈",
+        title: "Performance & Appraisal Tracking",
+        desc: `
+          Manage employee goals, KPIs, and appraisal cycles seamlessly. 
+          Empora helps HR teams and managers define measurable performance metrics 
+          and track employee progress throughout the year. 
+          The built-in feedback and review system encourages continuous improvement, 
+          recognizes top performers, and identifies areas for skill enhancement. 
+          This structured evaluation process promotes transparency and motivates 
+          employees to achieve organizational goals efficiently.
+        `
+      },
+      documents: {
+        icon: "📁",
+        title: "Document Management",
+        desc: `
+          Keep all HR-related files secure and accessible with Empora’s document management system. 
+          Upload, categorize, and manage essential files like offer letters, contracts, 
+          certificates, and policy documents. The system ensures data security with 
+          controlled access permissions and version tracking. 
+          HR professionals can retrieve any document instantly — eliminating the need 
+          for physical files and reducing the risk of data loss.
+        `
+      },
+      alerts: {
+        icon: "🔔",
+        title: "Notifications & Alerts",
+        desc: `
+          Stay informed with Empora’s smart notification system that keeps employees and 
+          HR teams updated in real-time. Receive automatic reminders for payroll processing, 
+          upcoming appraisals, leave approvals, and important events like birthdays or work anniversaries. 
+          Notifications can be delivered via email or dashboard pop-ups, 
+          ensuring no important task or deadline is ever missed — keeping your HR workflow organized and proactive.
+        `
+      }
+    };
+
+    // Update content on click
+    featureList.forEach(item => {
+      item.addEventListener("click", () => {
+        featureList.forEach(i => i.classList.remove("active-feature"));
+        item.classList.add("active-feature");
+
+        const featureKey = item.getAttribute("data-feature");
+        const { icon, title, desc } = features[featureKey];
+
+        featureContent.innerHTML = `
+          <div class="feature-card animate-fade-in p-3 md:p-6 rounded-2xl shadow-lg bg-white border border-gray-200">
+            <div class="text-3xl md:text-5xl mb-2 md:mb-4">${icon}</div>
+            <h3 class="text-xl md:text-2xl font-semibold text-[#102e62] mb-2 md:mb-3">${title}</h3>
+            <p class="text-gray-700 text-sm md:text-lg leading-relaxed">${desc}</p>
+          </div>
+        `;
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+<!-- WHY CHOOSE EMPORA SECTION -->
+<section id="why-choose-empora" class="relative w-full py-5 md:py-16 overflow-visible">
+  <div class="max-w-7xl mx-auto text-center">
+
+    <!-- Heading -->
+    <h2 class="text-2xl md:text-4xl font-bold text-[#102e62] mb-2">
+      Why Choose <span class="text-[#0a2150]">Empora</span>
+      <span class="text-gray-600 text-lg">(Backed By GVR)</span>
+    </h2>
+    <p class="text-gray-600 text-md md:text-lg max-w-2xl mx-auto mb-4 md:mb-8">
+      Discover why <strong>Empora</strong> stands out as a trusted HR Management System — built by 
+      <strong>GVR Technologies</strong> with innovation, scalability, and reliability in mind.
+    </p>
+
+    <!-- Mobile Swiper -->
+    <div class="block lg:hidden">
+      <div class="swiper whyEmporaSwiper">
+        <div class="swiper-wrapper mb-10">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide px-4 pb-5">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Backed by GVR Expertise</h3>
+              <p class="text-gray-600">Powered by GVR’s enterprise-grade reliability and technical innovation.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-cloud"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Cloud-Based Platform</h3>
+              <p class="text-gray-600">Access your HR operations securely from anywhere, anytime.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-lock"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Secure & Role-Based Access</h3>
+              <p class="text-gray-600">Ensure data privacy with multi-role access control and encryption.</p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-chart-line"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Real-Time Analytics</h3>
+              <p class="text-gray-600">Gain valuable insights into employee performance and payroll trends.</p>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-compass"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Easy-to-Use Interface</h3>
+              <p class="text-gray-600">Intuitive design that minimizes training time and boosts productivity.</p>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="swiper-slide px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-handshake"></i></div>
+              <h3 class="text-xl font-semibold text-[#102e62] mb-2">Highly Scalable</h3>
+              <p class="text-gray-600">Perfect for startups, growing companies, or large enterprises alike.</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- Pagination -->
+        <div class="whyEmpora-pagination swiper-pagination mt-6"></div>
+      </div>
+    </div>
+
+    <!-- Desktop Flex Layout -->
+    <div class="hidden lg:flex flex-wrap justify-center gap-16 mt-10">
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">Backed by GVR Expertise</h3>
+        <p class="text-gray-600">Powered by GVR’s enterprise-grade reliability and innovation.</p>
+      </div>
+
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-cloud"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">Cloud-Based Platform</h3>
+        <p class="text-gray-600">Access Empora anywhere, anytime through a secure cloud dashboard.</p>
+      </div>
+
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-lock"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">Secure & Role-Based Access</h3>
+        <p class="text-gray-600">Ensure HR data privacy with advanced security and access control.</p>
+      </div>
+
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-chart-line"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">Real-Time Analytics</h3>
+        <p class="text-gray-600">Track workforce metrics and performance with visual insights.</p>
+      </div>
+
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-compass"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">User-Friendly Interface</h3>
+        <p class="text-gray-600">Simplify HR workflows with an intuitive, modern interface.</p>
+      </div>
+
+      <div class="flex-auto lg:basis-[30%] min-w-[280px] max-w-[320px] bg-white rounded-2xl shadow-lg p-8">
+        <div class="mb-5 text-[#102e62] text-5xl"><i class="fa-solid fa-handshake"></i></div>
+        <h3 class="text-xl font-semibold text-[#102e62] mb-2">Highly Scalable</h3>
+        <p class="text-gray-600">Empora adapts to the size and needs of your growing organization.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✅ Swiper CSS (inside <head>) -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- ✅ Swiper JS (before </body>) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<style>
+    /* Default dot color */
+.whyEmpora-pagination .swiper-pagination-bullet {
+  background-color: #cbd5e1; /* light gray */
+  opacity: 1;
+}
+
+/* Active dot color */
+.whyEmpora-pagination .swiper-pagination-bullet-active {
+  background-color: #102e62 !important; /* your brand blue */
+}
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".whyEmporaSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: ".whyEmpora-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+  });
+
+  // Force refresh for mobile visibility
+  setTimeout(() => swiper.update(), 100);
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+<!-- 🖥️ Screenshots / Demo Preview Section (EMPORA) -->
+<section id="empora-demo" class="px-2 md:px-0 py-5 md:py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Title -->
+    <h2 class="empora-demo-title text-2xl md:text-4xl font-bold text-[#102e62] mb-2 md:mb-3 opacity-0">
+      Screenshots / Demo Preview
+    </h2>
+    <p class="empora-demo-subtitle text-gray-600 text-md md:text-lg mb-5 md:mb-8 opacity-0">
+      Explore the Empora interface — designed for clarity, simplicity, and productivity.
+    </p>
+
+    <!-- Screenshots Grid -->
+    <div class="grid md:grid-cols-3 md:px-0 gap-4 md:gap-8">
+      <!-- Card 1 -->
+      <div class="empora-demo-img1 relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer opacity-0"
+        onclick="openEmporaModal('./assests/buserele-dashboard.png', 'Dashboard Overview')">
+        <img src="./assests/buserele-dashboard.png" alt="Dashboard Overview"
+          class="w-full h-64 object-cover brightness-75 transition-transform duration-700 group-hover:scale-110" />
+        <div
+          class="absolute inset-x-0 bottom-0 bg-black/50 text-white py-2 px-3 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span class="text-lg">👆</span> <span class="font-semibold">Dashboard Overview</span>
+          <span>overview Of Analytics</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="empora-demo-img2 relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer opacity-0"
+        onclick="openEmporaModal('./assests/empora-employe-list.jpg', 'Employee List Screen')">
+        <img src="./assests/empora-employe-list.jpg" alt="Employee List Screen"
+          class="w-full h-64 object-cover brightness-75 transition-transform duration-700 group-hover:scale-110" />
+        <div
+          class="absolute inset-x-0 bottom-0 bg-black/50 text-white py-2 px-3 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span class="text-lg">👆</span> <span class="font-semibold">Employee List Screen</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="empora-demo-img3 relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer opacity-0"
+        onclick="openEmporaModal('./assests/empora-payroll.svg', 'Payroll Summary Page')">
+        <img src="./assests/empora-payroll.svg" alt="Payroll Summary Page"
+          class="w-full h-64 object-cover brightness-75 transition-transform duration-700 group-hover:scale-110" />
+        <div
+          class="absolute inset-x-0 bottom-0 bg-black/50 text-white py-2 px-3 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span class="text-lg">👆</span> <span class="font-semibold">Payroll Summary Page</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="emporaImageModal"
+    class="fixed inset-0 bg-black/80 hidden items-start py-[50%] md:py-0 md:items-center justify-center z-50"
+    onclick="closeEmporaModal()">
+    <div class="relative max-w-4xl w-[90%]">
+      <span class="absolute top-0 right-4 text-white text-3xl cursor-pointer"
+        onclick="closeEmporaModal()">&times;</span>
+      <h3 id="emporaModalTitle" class="text-white text-xl font-semibold mb-3 text-center"></h3>
+      <img id="emporaModalImage" src="" alt="Full View" class="w-full h-auto rounded-lg shadow-lg" />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ---------------- Keyframes ---------------- */
+  @keyframes emporaSlideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes emporaSlideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes emporaSlideBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------------- Animation Classes ---------------- */
+  .empora-animate-left {
+    animation: emporaSlideLeft 1s ease-out forwards;
+  }
+
+  .empora-animate-right {
+    animation: emporaSlideRight 1s ease-out forwards;
+  }
+
+  .empora-animate-bottom {
+    animation: emporaSlideBottom 1s ease-out forwards;
+  }
+</style>
+
+<script>
+  // Modal Logic
+  function openEmporaModal(src, title) {
+    document.getElementById("emporaModalImage").src = src;
+    document.getElementById("emporaModalTitle").textContent = title;
+    document.getElementById("emporaImageModal").classList.remove("hidden");
+    document.getElementById("emporaImageModal").classList.add("flex");
+  }
+
+  function closeEmporaModal() {
+    document.getElementById("emporaImageModal").classList.add("hidden");
+    document.getElementById("emporaImageModal").classList.remove("flex");
+  }
+
+  // Intersection Observer for Animation
+  const emporaDemoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const title = entry.target.querySelector('.empora-demo-title');
+      const subtitle = entry.target.querySelector('.empora-demo-subtitle');
+      const img1 = entry.target.querySelector('.empora-demo-img1');
+      const img2 = entry.target.querySelector('.empora-demo-img2');
+      const img3 = entry.target.querySelector('.empora-demo-img3');
+
+      if (entry.isIntersecting) {
+        setTimeout(() => title.classList.add('empora-animate-left'), 200);
+        setTimeout(() => subtitle.classList.add('empora-animate-left'), 400);
+        setTimeout(() => img1.classList.add('empora-animate-left'), 600);
+        setTimeout(() => img2.classList.add('empora-animate-bottom'), 900);
+        setTimeout(() => img3.classList.add('empora-animate-right'), 1200);
+      } else {
+        [title, subtitle, img1, img2, img3].forEach(el => {
+          el.classList.remove(
+            'empora-animate-left',
+            'empora-animate-right',
+            'empora-animate-bottom'
+          );
+          el.style.opacity = '0';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  emporaDemoObserver.observe(document.querySelector('#empora-demo'));
+</script>
+
+
+
+
+<!-- 💬 Client Testimonials / GVR Team Story Section (EMPORA) -->
+<section id="empora-testimonials" class="relative w-full pt-10 overflow-hidden">
+  <div class="max-w-5xl mx-auto md:px-6 text-center">
+    <!-- Section Heading -->
+    <h2
+      class="empora-testimonial-title text-2xl md:text-4xl font-bold text-[#102e62] mb-2 md:mb-3 opacity-0 transform -translate-x-10">
+      Client Testimonials / GVR Team Story
+    </h2>
+    <p
+      class="empora-testimonial-subtitle text-gray-600 text-md md:text-lg mb-5 md:mb-8 opacity-0 transform -translate-x-10">
+      Hear how <strong>Empora</strong> is making HR management simpler, smarter, and more efficient for teams.
+    </p>
+
+    <!-- Carousel Wrapper -->
+    <div class="relative overflow-hidden">
+      <div id="empora-testimonial-carousel" class="flex transition-transform duration-700 ease-in-out">
+
+        <!-- Card 1 -->
+        <div class="empora-testimonial-card min-w-full px-4 opacity-0 transform translate-y-10">
+          <div class="bg-white rounded-2xl px-2 md:px-8 py-5 md:py-12 border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#102e62] mb-4 mx-auto" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M7.17 6A5.17 5.17 0 0 0 2 11.17V20h8v-8H6.69a3.69 3.69 0 0 1 3.69-3.69V6H7.17zm9.66 0A5.17 5.17 0 0 0 11.83 11.17V20h8v-8h-3.31a3.69 3.69 0 0 1 3.69-3.69V6h-3.38z" />
+            </svg>
+            <p class="text-md md:text-xl italic text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              “<strong>Empora</strong> has transformed how we manage HR at <strong>GVR Technologies</strong> —
+              from tracking attendance to managing payroll, everything is now digital and effortless.”
+            </p>
+            <div class="w-20 h-[2px] bg-[#102e62] my-3 md:my-6 mx-auto"></div>
+            <h4 class="text-xl font-semibold text-[#102e62]">HR Manager</h4>
+            <p class="text-gray-500 text-sm mt-1">GVR Technologies</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="empora-testimonial-card min-w-full px-4 opacity-0 transform translate-y-10">
+          <div class="bg-white rounded-2xl px-2 md:px-8 py-5 md:py-12 border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#102e62] mb-4 mx-auto" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M7.17 6A5.17 5.17 0 0 0 2 11.17V20h8v-8H6.69a3.69 3.69 0 0 1 3.69-3.69V6H7.17zm9.66 0A5.17 5.17 0 0 0 11.83 11.17V20h8v-8h-3.31a3.69 3.69 0 0 1 3.69-3.69V6h-3.38z" />
+            </svg>
+            <p class="text-md md:text-xl italic text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              “The Empora dashboard has made our HR process smoother — attendance, payroll, and appraisals are all in one place.”
+            </p>
+            <div class="w-20 h-[2px] bg-[#102e62] my-3 md:my-6 mx-auto"></div>
+            <h4 class="text-xl font-semibold text-[#102e62]">Operations Head</h4>
+            <p class="text-gray-500 text-sm mt-1">GVR Technologies</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="empora-testimonial-card min-w-full px-4 opacity-0 transform translate-y-10">
+          <div class="bg-white rounded-2xl px-2 md:px-8 py-5 md:py-12 border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#102e62] mb-4 mx-auto" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M7.17 6A5.17 5.17 0 0 0 2 11.17V20h8v-8H6.69a3.69 3.69 0 0 1 3.69-3.69V6H7.17zm9.66 0A5.17 5.17 0 0 0 11.83 11.17V20h8v-8h-3.31a3.69 3.69 0 0 1 3.69-3.69V6h-3.38z" />
+            </svg>
+            <p class="text-md md:text-xl italic text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              “Empora analytics helped us improve HR efficiency and reduce manual work with accurate reporting.”
+            </p>
+            <div class="w-20 h-[2px] bg-[#102e62] my-3 md:my-6 mx-auto"></div>
+            <h4 class="text-xl font-semibold text-[#102e62]">HR Analytics Lead</h4>
+            <p class="text-gray-500 text-sm mt-1">GVR Technologies</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="flex justify-center mt-6 space-x-2" id="empora-testimonial-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Animation Script -->
+<script>
+  function animateEmporaElements(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('empora-animate');
+      } else {
+        entry.target.classList.remove('empora-animate'); // Replay when scrolling again
+      }
+    });
+  }
+
+  const emporaObserver = new IntersectionObserver(animateEmporaElements, { threshold: 0.3 });
+  document.querySelectorAll('.empora-testimonial-title, .empora-testimonial-subtitle, .empora-testimonial-card').forEach(el => {
+    emporaObserver.observe(el);
+  });
+</script>
+
+<!-- Animation Styles -->
+<style>
+  /* Heading & Subtitle Slide */
+  .empora-testimonial-title.empora-animate,
+  .empora-testimonial-subtitle.empora-animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: all 0.8s ease-out;
+  }
+
+  /* Cards Slide Up */
+  .empora-testimonial-card.empora-animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.9s ease-out;
+  }
+</style>
+
+<!-- Carousel Script -->
+<script>
+  const emporaCarousel = document.getElementById("empora-testimonial-carousel");
+  const emporaDotsContainer = document.getElementById("empora-testimonial-dots");
+  const emporaCards = Array.from(emporaCarousel.children);
+  const totalEmporaCards = emporaCards.length;
+  let emporaIndex = 0;
+
+  // Clone slides for infinite scroll
+  emporaCards.forEach((card) => { 
+    const clone = card.cloneNode(true);
+    emporaCarousel.appendChild(clone);
+  });
+
+  // Create dots for navigation
+  for (let i = 0; i < totalEmporaCards; i++) {
+    const dot = document.createElement("button");
+    dot.className = "w-3 h-3 rounded-full bg-gray-300 focus:outline-none transition-all duration-300";
+    if (i === 0) dot.classList.add("bg-[#102e62]");
+    dot.addEventListener("click", () => moveEmporaSlide(i));
+    emporaDotsContainer.appendChild(dot);
+  }
+
+  const emporaDots = Array.from(emporaDotsContainer.children);
+
+  function updateEmporaDots(activeIndex) {
+    emporaDots.forEach((dot, i) => {
+      if (i === activeIndex) {
+        dot.classList.add("bg-[#102e62]");
+        dot.classList.remove("bg-gray-300");
+      } else {
+        dot.classList.add("bg-gray-300");
+        dot.classList.remove("bg-[#102e62]");
+      }
+    });
+  }
+
+  function moveEmporaSlide(i) {
+    emporaCarousel.style.transition = "transform 0.7s ease-in-out";
+    emporaCarousel.style.transform = `translateX(-${i * 100}%)`;
+    updateEmporaDots(i);
+    emporaIndex = i;
+  }
+
+  // Auto Slide
+  setInterval(() => {
+    emporaIndex++;
+    emporaCarousel.style.transition = "transform 0.7s ease-in-out";
+    emporaCarousel.style.transform = `translateX(-${emporaIndex * 100}%)`;
+
+    if (emporaIndex === totalEmporaCards * 2 - 1) {
+      setTimeout(() => {
+        emporaCarousel.style.transition = "none";
+        emporaCarousel.style.transform = "translateX(0)";
+        emporaIndex = 0;
+        updateEmporaDots(0);
+      }, 750);
+    } else {
+      updateEmporaDots(emporaIndex % totalEmporaCards);
+    }
+  }, 4000);
+</script>
+
+
+
+
+
+<!-- FAQ'S / VIDEO SECTION FOR EMPORA -->
+<section id="empora-addons" class="relative w-full pt-10 md:pt-20 md:pb-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto text-center">
+
+    <!-- Add-on 1: FAQ Section -->
+    <div class="mb-14">
+      <h3 class="text-2xl md:text-4xl font-semibold text-[#102e62] mb-6 md:mb-8 empora-faq-title">
+        Frequently Asked Questions
+      </h3>
+      <div class="max-w-3xl mx-auto text-left space-y-5 px-3 empora-faq-list">
+        <details class="p-4 bg-white shadow-md rounded-lg">
+          <summary class="cursor-pointer font-semibold text-[#102e62]">
+            What is Empora HRMS used for?
+          </summary>
+          <p class="mt-2 text-gray-700">
+            Empora is an advanced HR management system designed to simplify attendance, payroll, and employee record management — all from a single dashboard.
+          </p>
+        </details>
+
+        <details class="p-4 bg-white shadow-md rounded-lg">
+          <summary class="cursor-pointer font-semibold text-[#102e62]">
+            Is Empora cloud-based?
+          </summary>
+          <p class="mt-2 text-gray-700">
+            Yes, Empora is fully cloud-based, allowing HR teams and managers to access data securely from anywhere, anytime.
+          </p>
+        </details>
+
+        <details class="p-4 bg-white shadow-md rounded-lg">
+          <summary class="cursor-pointer font-semibold text-[#102e62]">
+            Can I automate salary calculations?
+          </summary>
+          <p class="mt-2 text-gray-700">
+            Absolutely. Empora automates payroll processing, tax deductions, and payslip generation with complete accuracy.
+          </p>
+        </details>
+
+        <details class="p-4 bg-white shadow-md rounded-lg">
+          <summary class="cursor-pointer font-semibold text-[#102e62]">
+            Does Empora support employee performance tracking?
+          </summary>
+          <p class="mt-2 text-gray-700">
+            Yes, Empora includes built-in performance and appraisal tracking tools to monitor employee goals and achievements.
+          </p>
+        </details>
+      </div>
+    </div>
+
+    <!-- Add-on 2: Product Intro Video -->
+    <div class="mb-5 md:mb-1 empora-video-section">
+      <h3 class="text-2xl md:text-4xl font-semibold text-[#102e62] mb-6 md:mt-5 md:mb-8 empora-video-title">
+        Product Intro Video
+      </h3>
+      <div class="flex justify-center empora-video-wrapper">
+        <div class="w-full md:w-2/3 aspect-video rounded-xl overflow-hidden shadow-lg border-4 border-[#102e62]/20">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/your-demo-video"
+            title="Empora Intro Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  /* Hidden initial state */
+  .empora-faq-title,
+  .empora-faq-list details,
+  .empora-video-title,
+  .empora-video-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  /* Slide directions */
+  .empora-faq-title,
+  .empora-faq-list details,
+  .empora-video-title {
+    transform: translateX(-60px);
+  }
+
+  .empora-video-wrapper {
+    transform: translateY(80px);
+  }
+
+  /* Visible state */
+  .empora-animate {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+</style>
+
+<!-- Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#empora-addons");
+    const faqTitle = document.querySelector(".empora-faq-title");
+    const faqItems = document.querySelectorAll(".empora-faq-list details");
+    const videoTitle = document.querySelector(".empora-video-title");
+    const videoWrapper = document.querySelector(".empora-video-wrapper");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Step 1: Animate FAQ title
+          faqTitle.classList.add("empora-animate");
+
+          // Step 2: Animate FAQ items with stagger
+          setTimeout(() => {
+            faqItems.forEach((item, i) => {
+              setTimeout(() => item.classList.add("empora-animate"), i * 200);
+            });
+          }, 600);
+
+          // Step 3: Animate Video title
+          setTimeout(() => {
+            videoTitle.classList.add("empora-animate");
+          }, 1500);
+
+          // Step 4: Animate video
+          setTimeout(() => {
+            videoWrapper.classList.add("empora-animate");
+          }, 1900);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+  });
+</script>
+
+
+
+
+
+
+
+
 
 
 
