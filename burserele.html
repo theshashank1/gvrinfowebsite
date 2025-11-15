@@ -90,19 +90,24 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-  <nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
-        ? (window.innerWidth >= 768 
-            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
-            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
-        : (window.innerWidth >= 768
-            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%);'
-            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%);')">
+    }" 
+
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+
+    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
+
+    :style="
+        scrolled
+        ? 'background: linear-gradient(135deg, #F9F5F0 0%, #F1EFEA 15%, #C8D4DF 40%, #0A3D62 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
+        : 'background: linear-gradient(135deg, #F9F5F0 0%, #F1EFEA 15%, #C8D4DF 40%, #0A3D62 100%);'
+    "
+>
+
 
     <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16"
       :class="scrolled ? 'text-[#102e62]' : 'text-[#102e62]'">
@@ -371,7 +376,7 @@
 
   <!-- HOME BANNER SECTION -->
 <section id="hero-buserele"
-  class="relative w-full md:min-h-screen flex items-center justify-center text-center overflow-hidden">
+  class="relative w-full h-[300px] md:h-[600px] flex items-center justify-center text-center overflow-hidden">
 
   <!-- Background Video -->
   <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
@@ -385,12 +390,12 @@
   <!-- Content -->
   <div class="relative z-10 max-w-5xl mx-auto px-10 pt-[30%] pb-16 md:py-0 text-white">
     <h1
-      class="hero-slide-down text-2xl sm:text-4xl md:text-5xl font-bold mb-4 leading-snug sm:leading-tight">
+      class="hero-slide-down text-2xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-4 leading-snug sm:leading-tight">
       Buserele — Smart Property Management Simplified
     </h1>
 
     <p
-      class="hero-slide-down text-sm sm:text-base md:text-lg mb-8 text-gray-200 max-w-3xl mx-auto delay-200">
+      class="hero-slide-down text-sm sm:text-base md:text-lg mb-4 md:mb-8 text-gray-200 max-w-3xl mx-auto delay-200">
       A powerful solution by GVR to automate property operations, tenant
       management, and billing — all in one platform.
     </p>
@@ -1324,101 +1329,157 @@
 
 
 
-  <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
-    <div class="relative z-10">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
-        <!-- Left: Logo + Address -->
-        <div>
-          <img src="./assests/upscalemedia-transformed.png" alt="GVR Logo" class="h-12 mb-4">
-          <p class="text-md mb-4">
-            Plot No. 3, 3rd Floor, Sri Sai Enclave, Old Bowenpally, HYDERABAD, INDIA
-          </p>
-        </div>
-        <!-- Middle (Contact Info) -->
-        <div>
-          <div class="flex items-center mb-3">
-            <i class="fas fa-envelope text-[#f5a222] mr-2"></i>
-            <a href="mailto:info@gvr.com" class="hover:text-white text-md">info@gvrinfosystems.com</a>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-phone text-[#f5a222] mr-2"></i>
-            <a href="tel:+911234567890" class="hover:text-white text-md">+916300279339</a>
-          </div>
-        </div>
-        <!-- Right: Newsletter -->
-        <div>
-          <h3 class="text-xl font-semibold text-[#fff] mb-2">Newsletter</h3>
-          <p class="text-md mb-4">
-            Sign up to GVR weekly newsletter to get the latest updates.
-          </p>
-          <form id="newsletter-form" class="flex">
-            <input type="email" id="user_email" placeholder="Enter your email here.."
-              class="w-full px-3 py-2 rounded-l-md focus:outline-none text-black" required>
+   <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
+        <div class="relative z-10">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
+                <!-- Left: Logo + Address -->
+                <div>
+                    <img src="./assests/logo2.png" alt="GVR Logo" class="h-12 mb-4">
+                    <p class="text-md mb-4">
+                        Plot No. 3, 3rd Floor, Sri Sai Enclave, Old Bowenpally, HYDERABAD, INDIA
+                    </p>
+                </div>
+                <!-- Middle (Contact Info) -->
+                <div>
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-envelope text-[#f5a222] mr-2"></i>
+                        <a href="mailto:info@gvr.com" class="hover:text-white text-md">info@gvrinfosystems.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-[#f5a222] mr-2"></i>
+                        <a href="tel:+911234567890" class="hover:text-white text-md">+916300279339</a>
+                    </div>
+                </div>
+                <!-- Right: Newsletter -->
+                <div>
+                    <h3 class="text-xl font-semibold text-[#fff] mb-2">Newsletter</h3>
+                    <p class="text-md mb-4">
+                        Sign up to GVR weekly newsletter to get the latest updates.
+                    </p>
+                    <form id="newsletter-form" class="flex">
+                        <input type="email" id="user_email" placeholder="Enter your email here.."
+                            class="w-full px-3 py-2 rounded-l-md focus:outline-none text-black" required>
 
-            <button id="subscribe-btn" type="submit"
-              class="bg-blue-500 text-white px-4 rounded-r-md hover:bg-blue-600 flex items-center justify-center relative">
-              <i id="send-icon" class="fas fa-paper-plane"></i>
-              <span id="loading-spinner"
-                class="hidden animate-spin ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full"></span>
-            </button>
-          </form>
-          <!-- Messages -->
-          <p id="form-success" class="text-green-400 mt-2 hidden">✅ Thank you! Your email has been sent.</p>
-          <p id="form-error" class="text-red-400 mt-2 hidden">❌ Failed to send. Please try again later.</p>
-        </div>
-      </div>
+                        <button id="subscribe-btn" type="submit"
+                            class="bg-blue-500 text-white px-4 rounded-r-md hover:bg-blue-600 flex items-center justify-center relative">
+                            <i id="send-icon" class="fas fa-paper-plane"></i>
+                            <span id="loading-spinner"
+                                class="hidden animate-spin ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full"></span>
+                        </button>
+                    </form>
+                    <!-- Messages -->
+                    <p id="form-success" class="text-green-400 mt-2 hidden">✅ Thank you! Your email has been sent.</p>
+                    <p id="form-error" class="text-red-400 mt-2 hidden">❌ Failed to send. Please try again later.</p>
+                </div>
+            </div>
 
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 py-10 border-b border-gray-700">
-        <!-- Information -->
-        <div>
-          <h3 class="text-xl font-semibold text-[#fff] mb-3">Information</h3>
-          <ul class="space-y-2 text-md">
-            <li><a href="aboutus" class="hover:text-white">About GVR</a></li>
-            <li><a href="portfolio" class="hover:text-white">Portfolio</a></li>
-            <li><a href="team" class="hover:text-white">Team</a></li>
-            <li><a href="service" class="hover:text-white">Services</a></li>
-            <li><a href="case-study" class="hover:text-white">Case Study</a></li>
-            <li><a href="careers" class="hover:text-white">Careers</a></li>
-            <li><a href="blog" class="hover:text-white">Blog</a></li>
-            <li><a href="contact" class="hover:text-white">Contact</a></li>
-          </ul>
-        </div>
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 py-10 border-b border-gray-700">
+                <!-- Information -->
+                <div>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Information</h3>
+                    <ul class="space-y-2 text-md">
+                        <li><a href="aboutus" class="hover:text-white footer-link">About GVR</a></li>
+                        <li><a href="portfolio" class="hover:text-white footer-link">Portfolio</a></li>
+                        <li><a href="team" class="hover:text-white footer-link">Team</a></li>
+                        <li><a href="service" class="hover:text-white footer-link">Services</a></li>
+                        <li><a href="case-study" class="hover:text-white footer-link">Case Study</a></li>
+                        <li><a href="careers" class="hover:text-white footer-link">Careers</a></li>
+                        <li><a href="blog" class="hover:text-white footer-link">Blog</a></li>
+                        <li><a href="contact" class="hover:text-white footer-link">Contact</a></li>
+                    </ul>
+                </div>
 
-        <!-- Services -->
-        <div>
-          <h3 class="text-xl font-semibold text-[#fff] mb-3">Services</h3>
-          <ul class="space-y-2 text-md">
-            <li><a href="cloud-migration-maintenance-deployment" class="hover:text-white">Cloud
-                Migration, Maintenance & Deployment</a></li>
-            <li><a href="data-center-operations" class="hover:text-white">Data Center Operations</a></li>
-            <li><a href="mobile-applications-development" class="hover:text-white">Mobile Application
-                Development</a></li>
-            <li><a href="security-solutions" class="hover:text-white">Security Solutions</a></li>
-            <li><a href="ai-ml-solutions" class="hover:text-white">AI & ML Solutions</a></li>
-            <li><a href="web-based-community-solutions" class="hover:text-white">Web Based Community
-                Solutions</a></li>
-            <li><a href="enterprise-applications-integration" class="hover:text-white">Enterprise
-                Application Integration</a></li>
-          </ul>
-        </div>
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Services</h3>
+                    <ul class="space-y-2 text-md">
+                        <li><a href="cloud-migration-maintenance-deployment" class="hover:text-white footer-link">Cloud
+                                Migration, Maintenance & Deployment</a></li>
+                        <li><a href="data-center-operations" class="hover:text-white footer-link">Data Center Operations</a></li>
+                        <li><a href="mobile-applications-development" class="hover:text-white footer-link">Mobile Application
+                                Development</a></li>
+                        <li><a href="security-solutions" class="hover:text-white footer-link">Security Solutions</a></li>
+                        <li><a href="ai-ml-solutions" class="hover:text-white footer-link">AI & ML Solutions</a></li>
+                        <li><a href="web-based-community-solutions" class="hover:text-white footer-link">Web Based Community
+                                Solutions</a></li>
+                        <li><a href="enterprise-applications-integration" class="hover:text-white footer-link">Enterprise
+                                Application Integration</a></li>
+                    </ul>
+                </div>
 
-        <!-- Products -->
-        <div>
-          <h3 class="text-xl font-semibold text-[#fff] mb-3">Products</h3>
-          <ul class="space-y-2 text-md">
-            <li><a href="ayucare(hms)" class="hover:text-white">AYUCARE(HMS)</a></li>
-            <li><a href="burserele" class="hover:text-white">BURSERELE</a></li>
-            <li><a href="empora(hrm)" class="hover:text-white">EMPORA(HRM)</a></li>
-          </ul>
-        </div>
-      </div>
+                <!-- Products -->
+                <div>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Products</h3>
+                    <ul class="space-y-2 text-md">
+                        <li><a href="ayucare(hms)" class="hover:text-white footer-link">AYUCARE(HMS)</a></li>
+                        <li><a href="burserele" class="hover:text-white footer-link">BURSERELE</a></li>
+                        <li><a href="empora(hrm)" class="hover:text-white footer-link">EMPORA(HRM)</a></li>
+                    </ul>
+                </div>
+            </div>
 
-      <!-- Copyright -->
-      <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
-        © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
-      </div>
-    </div>
-  </footer>
+            <!-- Copyright -->
+            <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
+                © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer Link Underline Animation */
+.footer-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #f5a222;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Desktop hover */
+.footer-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile click/touch */
+.footer-link:active::after {
+    width: 100%;
+}
+
+    </style>
+
+    <script>
+    document.querySelectorAll('.footer-link').forEach(link => {
+        link.addEventListener('click', function (event) {
+
+            // If screen width is mobile
+            if (window.innerWidth < 768) {
+                event.preventDefault(); // Stop immediate navigation
+
+                // Remove previous active underline
+                document.querySelectorAll('.footer-link').forEach(l => l.classList.remove('active'));
+
+                // Apply underline
+                this.classList.add('active');
+
+                const url = this.getAttribute('href');
+
+                // Navigate after animation delay
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 200); // perfect timing for animation
+            }
+        });
+    });
+</script>
 
   <!-- EmailJS Script -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>

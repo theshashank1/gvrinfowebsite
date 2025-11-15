@@ -94,19 +94,24 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-    <nav x-data="{ 
+         <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
-        ? (window.innerWidth >= 768 
-            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
-            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
-        : (window.innerWidth >= 768
-            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%);'
-            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%);')">
+    }" 
+
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+
+    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
+
+    :style="
+        scrolled
+        ? 'background: linear-gradient(135deg, #F9F5F0 0%, #F1EFEA 15%, #C8D4DF 40%, #0A3D62 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
+        : 'background: linear-gradient(135deg, #F9F5F0 0%, #F1EFEA 15%, #C8D4DF 40%, #0A3D62 100%);'
+    "
+>
+
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16"
             :class="scrolled ? 'text-[#102e62]' : 'text-[#102e62]'">
@@ -216,7 +221,7 @@
             <!-- Get Started Button -->
             <div class="hidden lg:block">
                 <a href="contact"
-                    class="relative flex items-center hover:bg-transparent hover:text-[#102e62] gap-2 px-6 py-2 border border-2 border-[#102e62] text-[#fff] bg-[#102e62] rounded-full font-semibold overflow-hidden group">
+                    class="relative flex items-center hover:bg-transparent hover:text-[#f5a222] gap-2 px-6 py-2 border border-2 border-[#f5a222] text-[#fff] bg-[#f5a222] rounded-full  overflow-hidden group">
                     <span class="flex items-center gap-2 group-hover:animate-roll-up-down">
                         Get Started
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
@@ -230,7 +235,7 @@
 
             <!-- Mobile Toggle -->
             <button @click="open = !open"
-                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-[#102e62] text-[#102e62]">
+                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-[#f5a222] text-[#f5a222]">
                 <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -652,15 +657,15 @@
         <!-- RIGHT SIDE SLIDER -->
         <div class="relative w-full md:w-full h-full flex justify-center items-center overflow-visible ml-auto md:mt-0">
             <div class="absolute md:relative right-0 top-0 w-full h-full flex justify-center items-center">
-                <img src="./assests/brandlogo1.png" class="logo-slide active" alt="Brand 1">
-                <img src="./assests/brandlogo2.png" class="logo-slide" alt="Brand 2">
-                <img src="./assests/brandlogo3.png" class="logo-slide" alt="Brand 3">
-                <img src="./assests/brandlogo4.png" class="logo-slide" alt="Brand 4">
-                <img src="./assests/brandlogo5.png" class="logo-slide" alt="Brand 5">
-                <img src="./assests/brandlogo6.png" class="logo-slide" alt="Brand 6">
-                <img src="./assests/brandlogo7.png" class="logo-slide" alt="Brand 7">
-                <img src="./assests/brandlogo8.png" class="logo-slide" alt="Brand 8">
-                <img src="./assests/brandlogo9.png" class="logo-slide" alt="Brand 9">
+                <img src="./assests/brandlogo001.png" class="logo-slide active" alt="Brand 1">
+                <img src="./assests/brandlogo002.png" class="logo-slide" alt="Brand 2">
+                <img src="./assests/brandlogo03.png" class="logo-slide" alt="Brand 3">
+                <img src="./assests/brandlogo04.webp" class="logo-slide" alt="Brand 4">
+                <img src="./assests/brandlogo005.png" class="logo-slide" alt="Brand 5">
+                <img src="./assests/brandlogo006.png" class="logo-slide" alt="Brand 6">
+                <img src="./assests/brandlogo007.png" class="logo-slide" alt="Brand 7">
+                <img src="./assests/brandlogo008.png" class="logo-slide" alt="Brand 8">
+                <img src="./assests/brandlogo009.png" class="logo-slide" alt="Brand 9">
             </div>
         </div>
     </section>
@@ -1164,10 +1169,10 @@
                     Our expert team ensures your goals are achieved efficiently with measurable results.
                 </p>
                 <ul class="space-y-3 text-gray-300 text-base md:text-lg">
-                    <li><i class="fa-solid fa-circle-check text-[#00c6ff] mr-2"></i> Dedicated & Skilled Professionals
+                    <li><i class="fa-solid fa-circle-check text-[#f5a222] mr-2"></i> Dedicated & Skilled Professionals
                     </li>
-                    <li><i class="fa-solid fa-circle-check text-[#f5a623] mr-2"></i> Transparent & Reliable Process</li>
-                    <li><i class="fa-solid fa-circle-check text-[#22c55e] mr-2"></i> Guaranteed Client Satisfaction</li>
+                    <li><i class="fa-solid fa-circle-check text-[#f5a222] mr-2"></i> Transparent & Reliable Process</li>
+                    <li><i class="fa-solid fa-circle-check text-[#f5a222] mr-2"></i> Guaranteed Client Satisfaction</li>
                 </ul>
             </div>
         </div>
@@ -2332,12 +2337,12 @@
 
 
 
-    <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
+   <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
         <div class="relative z-10">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
                 <!-- Left: Logo + Address -->
                 <div>
-                    <img src="./assests/upscalemedia-transformed.png" alt="GVR Logo" class="h-12 mb-4">
+                    <img src="./assests/logo2.png" alt="GVR Logo" class="h-12 mb-4">
                     <p class="text-md mb-4">
                         Plot No. 3, 3rd Floor, Sri Sai Enclave, Old Bowenpally, HYDERABAD, INDIA
                     </p>
@@ -2379,44 +2384,44 @@
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 py-10 border-b border-gray-700">
                 <!-- Information -->
                 <div>
-                    <h3 class="text-xl font-semibold text-[#fff] mb-3">Information</h3>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Information</h3>
                     <ul class="space-y-2 text-md">
-                        <li><a href="aboutus" class="hover:text-white">About GVR</a></li>
-                        <li><a href="portfolio" class="hover:text-white">Portfolio</a></li>
-                        <li><a href="team" class="hover:text-white">Team</a></li>
-                        <li><a href="service" class="hover:text-white">Services</a></li>
-                        <li><a href="case-study" class="hover:text-white">Case Study</a></li>
-                        <li><a href="careers" class="hover:text-white">Careers</a></li>
-                        <li><a href="blog" class="hover:text-white">Blog</a></li>
-                        <li><a href="contact" class="hover:text-white">Contact</a></li>
+                        <li><a href="aboutus" class="hover:text-white footer-link">About GVR</a></li>
+                        <li><a href="portfolio" class="hover:text-white footer-link">Portfolio</a></li>
+                        <li><a href="team" class="hover:text-white footer-link">Team</a></li>
+                        <li><a href="service" class="hover:text-white footer-link">Services</a></li>
+                        <li><a href="case-study" class="hover:text-white footer-link">Case Study</a></li>
+                        <li><a href="careers" class="hover:text-white footer-link">Careers</a></li>
+                        <li><a href="blog" class="hover:text-white footer-link">Blog</a></li>
+                        <li><a href="contact" class="hover:text-white footer-link">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div>
-                    <h3 class="text-xl font-semibold text-[#fff] mb-3">Services</h3>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Services</h3>
                     <ul class="space-y-2 text-md">
-                        <li><a href="cloud-migration-maintenance-deployment" class="hover:text-white">Cloud
+                        <li><a href="cloud-migration-maintenance-deployment" class="hover:text-white footer-link">Cloud
                                 Migration, Maintenance & Deployment</a></li>
-                        <li><a href="data-center-operations" class="hover:text-white">Data Center Operations</a></li>
-                        <li><a href="mobile-applications-development" class="hover:text-white">Mobile Application
+                        <li><a href="data-center-operations" class="hover:text-white footer-link">Data Center Operations</a></li>
+                        <li><a href="mobile-applications-development" class="hover:text-white footer-link">Mobile Application
                                 Development</a></li>
-                        <li><a href="security-solutions" class="hover:text-white">Security Solutions</a></li>
-                        <li><a href="ai-ml-solutions" class="hover:text-white">AI & ML Solutions</a></li>
-                        <li><a href="web-based-community-solutions" class="hover:text-white">Web Based Community
+                        <li><a href="security-solutions" class="hover:text-white footer-link">Security Solutions</a></li>
+                        <li><a href="ai-ml-solutions" class="hover:text-white footer-link">AI & ML Solutions</a></li>
+                        <li><a href="web-based-community-solutions" class="hover:text-white footer-link">Web Based Community
                                 Solutions</a></li>
-                        <li><a href="enterprise-applications-integration" class="hover:text-white">Enterprise
+                        <li><a href="enterprise-applications-integration" class="hover:text-white footer-link">Enterprise
                                 Application Integration</a></li>
                     </ul>
                 </div>
 
                 <!-- Products -->
                 <div>
-                    <h3 class="text-xl font-semibold text-[#fff] mb-3">Products</h3>
+                    <h3 class="text-xl font-semibold text-[#f5a222] mb-3">Products</h3>
                     <ul class="space-y-2 text-md">
-                        <li><a href="ayucare(hms)" class="hover:text-white">AYUCARE(HMS)</a></li>
-                        <li><a href="burserele" class="hover:text-white">BURSERELE</a></li>
-                        <li><a href="empora(hrm)" class="hover:text-white">EMPORA(HRM)</a></li>
+                        <li><a href="ayucare(hms)" class="hover:text-white footer-link">AYUCARE(HMS)</a></li>
+                        <li><a href="burserele" class="hover:text-white footer-link">BURSERELE</a></li>
+                        <li><a href="empora(hrm)" class="hover:text-white footer-link">EMPORA(HRM)</a></li>
                     </ul>
                 </div>
             </div>
@@ -2427,6 +2432,62 @@
             </div>
         </div>
     </footer>
+
+    <style>
+        /* Footer Link Underline Animation */
+.footer-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #f5a222;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Desktop hover */
+.footer-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile click/touch */
+.footer-link:active::after {
+    width: 100%;
+}
+
+    </style>
+
+    <script>
+    document.querySelectorAll('.footer-link').forEach(link => {
+        link.addEventListener('click', function (event) {
+
+            // If screen width is mobile
+            if (window.innerWidth < 768) {
+                event.preventDefault(); // Stop immediate navigation
+
+                // Remove previous active underline
+                document.querySelectorAll('.footer-link').forEach(l => l.classList.remove('active'));
+
+                // Apply underline
+                this.classList.add('active');
+
+                const url = this.getAttribute('href');
+
+                // Navigate after animation delay
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 200); // perfect timing for animation
+            }
+        });
+    });
+</script>
 
     <!-- EmailJS Script -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
