@@ -1680,9 +1680,35 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(245, 162, 34, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(16, 46, 98, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(245, 162, 34, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(16, 46, 98, 0.4) 0%, transparent 50%);
             z-index: 0;
+        }
+
+        /* Animated background particles */
+        #svc-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.15), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(245, 162, 34, 0.1), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.15), transparent),
+                radial-gradient(2px 2px at 90% 60%, rgba(245, 162, 34, 0.1), transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: particleFloat 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
         }
 
         #svc-section>* {
@@ -1694,25 +1720,25 @@
         .svc-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 4rem 1.5rem;
         }
 
         @media (min-width: 768px) {
             .svc-container {
-                padding: 4rem 2rem;
+                padding: 5rem 2.5rem;
             }
         }
 
         .svc-left {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         /* Services grid */
         .svc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -1720,25 +1746,27 @@
         @media (min-width: 768px) {
             .svc-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
+                gap: 3rem;
             }
         }
 
         @media (min-width: 1024px) {
             .svc-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
             }
         }
 
         /* Card styling */
         .svc-card {
             position: relative;
-            border-radius: 1.5rem;
+            border-radius: 1.75rem;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .svc-card::before {
@@ -1748,25 +1776,43 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(245, 162, 34, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(245, 162, 34, 0.15) 0%, transparent 100%);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .svc-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 162, 34, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
         }
 
         .svc-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(245, 162, 34, 0.3);
+            transform: translateY(-16px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(245, 162, 34, 0.4);
+            border-color: rgba(245, 162, 34, 0.4);
         }
 
         .svc-card:hover::before {
             opacity: 1;
         }
 
+        .svc-card:hover::after {
+            opacity: 1;
+        }
+
         .svc-card-image-wrapper {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
 
@@ -1774,11 +1820,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9);
         }
 
         .svc-card:hover .svc-card-image {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            filter: brightness(1);
         }
 
         .svc-card-overlay {
@@ -1787,74 +1835,135 @@
             left: 0;
             right: 0;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
         }
 
         .svc-card-content {
-            padding: 1.5rem;
+            position: relative;
+            padding: 2rem 1.75rem;
+            z-index: 2;
+        }
+
+        .svc-card-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, #f5a222 0%, #ff8800 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 16px rgba(245, 162, 34, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .svc-card:hover .svc-card-icon {
+            transform: translateY(-4px) rotate(5deg);
+            box-shadow: 0 8px 24px rgba(245, 162, 34, 0.5);
+        }
+
+        .svc-card-icon i {
+            font-size: 1.75rem;
+            color: white;
         }
 
         .svc-card-title {
-            font-size: 1.25rem;
+            font-size: 1.375rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             color: #fff;
             line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .svc-card:hover .svc-card-title {
+            color: #f5a222;
         }
 
         .svc-card-desc {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+            line-height: 1.65;
         }
 
         .svc-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: #f5a222;
+            gap: 0.625rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #f5a222 0%, #ff8800 100%);
             color: white;
-            border: 2px solid #f5a222;
+            border: none;
             border-radius: 9999px;
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            box-shadow: 0 4px 16px rgba(245, 162, 34, 0.3);
         }
 
         .svc-btn:hover {
-            background: transparent;
-            color: #f5a222;
-            transform: translateX(4px);
+            background: linear-gradient(135deg, #ff8800 0%, #f5a222 100%);
+            transform: translateX(8px) translateY(-2px);
+            box-shadow: 0 6px 24px rgba(245, 162, 34, 0.5);
         }
 
         .svc-btn-arrow {
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            font-size: 1rem;
         }
 
         .svc-btn:hover .svc-btn-arrow {
-            transform: rotate(45deg) translateX(2px);
+            transform: translateX(4px);
+        }
+
+        /* Header animations */
+        #svc-subtitle {
+            position: relative;
+            display: inline-block;
+        }
+
+        #svc-subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f5a222, transparent);
+            opacity: 0;
+        }
+
+        .svc-animate-subtitle::after {
+            animation: underlineGrow 0.8s ease 0.6s forwards;
+        }
+
+        @keyframes underlineGrow {
+            to {
+                opacity: 1;
+                width: 120px;
+            }
         }
 
         /* Staggered text animation */
         .svc-animate-subtitle {
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .svc-animate-title {
-            animation: fadeInUp 0.6s ease 0.2s forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
         }
 
         .svc-animate-p {
-            animation: fadeInUp 0.6s ease 0.4s forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -1865,7 +1974,7 @@
         /* Card entrance animations */
         .svc-card {
             opacity: 0;
-            animation: cardFadeIn 0.6s ease forwards;
+            animation: cardFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .svc-card:nth-child(1) { animation-delay: 0.1s; }
@@ -1879,11 +1988,11 @@
         @keyframes cardFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
     </style>
@@ -1913,8 +2022,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
                         <h3 class="svc-card-title">Enterprise Application Integration</h3>
-                        <p class="svc-card-desc">Seamlessly connect and integrate your enterprise systems for improved workflow efficiency.</p>
+                        <p class="svc-card-desc">Seamlessly connect and integrate your enterprise systems for improved workflow efficiency and real-time data synchronization.</p>
                         <a href="enterprise-applications-integration" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -1929,8 +2041,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
                         <h3 class="svc-card-title">Web Based Community Solutions</h3>
-                        <p class="svc-card-desc">Build engaging online communities with our scalable web-based platforms.</p>
+                        <p class="svc-card-desc">Build engaging online communities with our scalable web-based platforms designed for maximum user interaction.</p>
                         <a href="web-based-community-solutions" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -1945,8 +2060,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
                         <h3 class="svc-card-title">AI & ML Solutions</h3>
-                        <p class="svc-card-desc">Harness the power of artificial intelligence and machine learning for smarter decisions.</p>
+                        <p class="svc-card-desc">Harness the power of artificial intelligence and machine learning to make smarter, data-driven business decisions.</p>
                         <a href="ai-ml-solutions" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -1961,8 +2079,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
                         <h3 class="svc-card-title">Security Solutions</h3>
-                        <p class="svc-card-desc">Protect your digital assets with comprehensive security and compliance solutions.</p>
+                        <p class="svc-card-desc">Protect your digital assets with comprehensive security and compliance solutions tailored to your needs.</p>
                         <a href="security-solutions" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -1977,8 +2098,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
                         <h3 class="svc-card-title">Cloud Migration & Deployment</h3>
-                        <p class="svc-card-desc">Seamlessly migrate to the cloud with our expert deployment and maintenance services.</p>
+                        <p class="svc-card-desc">Seamlessly migrate to the cloud with our expert deployment, maintenance, and optimization services.</p>
                         <a href="cloud-migration-maintenance-deployment" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -1993,8 +2117,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
                         <h3 class="svc-card-title">Data Center Operations</h3>
-                        <p class="svc-card-desc">Reliable data center management ensuring optimal performance and uptime.</p>
+                        <p class="svc-card-desc">Reliable data center management ensuring optimal performance, uptime, and scalability for your business.</p>
                         <a href="data-center-operations" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
@@ -2009,8 +2136,11 @@
                         <div class="svc-card-overlay"></div>
                     </div>
                     <div class="svc-card-content">
+                        <div class="svc-card-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
                         <h3 class="svc-card-title">Mobile Application Development</h3>
-                        <p class="svc-card-desc">Create stunning mobile experiences across iOS and Android platforms.</p>
+                        <p class="svc-card-desc">Create stunning, high-performance mobile experiences across iOS and Android platforms with native feel.</p>
                         <a href="mobile-applications-development" class="svc-btn">
                             <span>Learn More</span>
                             <i class="fa-solid fa-arrow-right svc-btn-arrow"></i>
